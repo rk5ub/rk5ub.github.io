@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波奇酱的赛博空间</title>
+    <style>
+        /* CSS 样式：负责美化 */
+        body {
+            /* 这里的 bg.jpg 必须和你文件夹里的图片名字一模一样 */
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Microsoft YaHei', sans-serif;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+
+        #counter-box {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        #count {
+            font-size: 3rem;
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        #poke-btn {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        #poke-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff1493;
+        }
+
+        #poke-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎸 波奇酱的频道</h1>
+        <div id="counter-box">
+            波奇酱被戳了 <span id="count">0</span> 次
+        </div>
+        <button id="poke-btn">戳一下！</button>
+    </div>
+
+    <audio id="bgm" src="111.mp3" loop></audio>
+
+    <script>
+        /* JavaScript 逻辑：负责交互 */
+        let count = 0;
+        const btn = document.getElementById('poke-btn');
+        const display = document.getElementById('count');
+        const bgm = document.getElementById('bgm');
+
+        btn.addEventListener('click', () => {
+            count++;
+            display.innerText = count;
+
+            // 交互一：第一次点击时尝试播放背景音乐
+            if (count === 1) {
+                bgm.play().catch(() => {
+                    console.log("浏览器限制了自动播放，再多点几次试试！");
+                });
+            }
+
+            // 交互二：点击彩蛋
+            if (count === 10) {
+                btn.innerText = "别戳啦，害羞了！(>_<)";
+            } else if (count === 20) {
+                btn.innerText = "要...要坏掉了！";
+                btn.style.backgroundColor = "#ff0000";
+            } else if (count === 50) {
+                alert("成就解锁：波奇酱的头号粉丝！");
+            }
+        });
+    </script>
+</body>
+</html>
