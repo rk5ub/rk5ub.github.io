@@ -4,4 +4,5 @@
   <source src="111.mp3" type="audio/mpeg">
   你的浏览器不支持音频播放。
 </audio>
-© 2026 秋秋. All Rights Reserved.
+---
+<p align="center">© 2026 秋秋. All Rights Reserved.</p>
