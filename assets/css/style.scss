@@ -16,3 +16,16 @@ body {
     padding: 20px;
     border-radius: 10px;
 }
+/* 让顶部标题区域完全透明，不再遮挡背景 */
+.page-header {
+    background-image: none !important; /* 强制去掉绿色的渐变背景 */
+    background-color: transparent !important; /* 设置为透明 */
+    box-shadow: none !important; /* 去掉可能的阴影 */
+    border-bottom: none !important; /* 去掉底部分割线 */
+}
+
+/* 如果你觉得文字在透明背景下看不清，可以给文字加个阴影 */
+.project-name, .project-tagline {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
