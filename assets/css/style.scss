@@ -1,0 +1,18 @@
+---
+---
+@import "{{ site.theme }}";
+
+body {
+    background-image: url('../../bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* 让中间的文字区域变半透明，这样才好看 */
+.main-content {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
